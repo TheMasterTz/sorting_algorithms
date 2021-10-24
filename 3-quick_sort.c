@@ -1,5 +1,13 @@
 #include "sort.h"
-
+/**
+ * partition - finds the partition for the quicksort using the Lomuto scheme
+ * @array: array to sort
+ * @start: lowest index of the partition to sort
+ * @end: highest index of the partition to sort
+ * @size: size of the array
+ *
+ * Return: index of the partition
+ */
 int partition(int *array, int start, int end, size_t size)
 {
 	int i = start - 1;
@@ -32,7 +40,15 @@ int partition(int *array, int start, int end, size_t size)
 	}
 	return (i);
 }
-
+/**
+ * quicksort - sorts a partition of an array of integers
+ * @array: array to sort
+ * @start: lowest index of the partition to sort
+ * @end: highest index of the partition to sort
+ * @size: size of the array
+ *
+ * Return: void
+ */
 void quicksort(int *array, int start, int end, size_t size)
 {
 	int pivot;
@@ -44,10 +60,17 @@ void quicksort(int *array, int start, int end, size_t size)
 		quicksort(array, pivot + 1, end, size);
 	}
 }
-
+/**
+ * quick_sort - sorts an array of integers in ascending order using the
+ * Quick sort algorithm
+ * @array: The array to sort
+ * @size: The size of the array
+ *
+ * Return: void
+ */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 
 	quicksort(array, 0, size - 1, size);
